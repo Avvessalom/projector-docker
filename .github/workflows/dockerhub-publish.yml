@@ -187,10 +187,10 @@ jobs:
       - name: Push exact version
         run: |
           cd projector-docker
-          ./build-container.sh jetbrains/${{ matrix.imageName}}:${{ matrix.tag }} ${{ matrix.downloadLink }}
-          docker push jetbrains/${{ matrix.ImageName }}:${{ matrix.tag }}
+          ./build-container.sh ${{ secrets.DOCKER_IMAGE_OWNER }}/${{ matrix.imageName}}:${{ matrix.tag }} ${{ matrix.downloadLink }}
+          docker push ${{ secrets.DOCKER_IMAGE_OWNER }}/${{ matrix.ImageName }}:${{ matrix.tag }}
       - name: Push latest
         if: ${{ matrix. isLatest }}
         run: |
-            docker tag jetbrains/${{ matrix.imageName}}:${{ matrix.tag }} jetbrains/${{ matrix.imageName}}:latest
-            docker push jetbrains/${{ matrix.ImageName }}:latest
+            docker tag ${{ secrets.DOCKER_IMAGE_OWNER }}/${{ matrix.imageName}}:${{ matrix.tag }} ${{ secrets.DOCKER_IMAGE_OWNER }}/${{ matrix.imageName}}:latest
+            docker push ${{ secrets.DOCKER_IMAGE_OWNER }}/${{ matrix.ImageName }}:latest
