@@ -192,5 +192,5 @@ jobs:
       - name: Push latest
         if: ${{ matrix. isLatest }}
         run: |
-            docker tag ${{ secrets.DOCKER_IMAGE_OWNER }}/${{ matrix.imageName}}:${{ matrix.tag }} ${{ secrets.DOCKER_IMAGE_OWNER }}/${{ matrix.imageName}}:develop
+            docker tag ${{ secrets.DOCKER_IMAGE_OWNER }}/${{ matrix.imageName}}:${{ matrix.tag }}-develop ${{ secrets.DOCKER_IMAGE_OWNER }}/${{ matrix.imageName}}:develop
             docker push ${{ secrets.DOCKER_IMAGE_OWNER }}/${{ matrix.ImageName }}:develop
