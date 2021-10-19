@@ -1,4 +1,4 @@
-name: Docker Publish
+name: Docker Publish Stable
 
 on:
   workflow_dispatch:
@@ -7,7 +7,7 @@ jobs:
   docker:
     runs-on: ubuntu-latest
     env:
-      PROJECTOR_STABLE: 1.4.0
+      PROJECTOR_STABLE: v1.4.0
     strategy:
       matrix:
         include:
